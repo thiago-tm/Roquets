@@ -27,17 +27,8 @@
 }
 
 body {
-  /*Buscando a imagem de fundo */
-  background-image: var(--bg-url);
-
-  /*A imagem esta repetindo varias vezes, para não repetir:*/
-  background-repeat: no-repeat;
-
-  /*Colocando a imagem no meio*/
-  background-position: top center;
-
-  /*Se for um dispositivo grande vai preencher toda a tela*/
-  background-size: cover;
+  background: var(--bg-url) no-repeat top center/cover;
+  height: 100vh;
 }
 
 body * {
@@ -171,4 +162,15 @@ ul li a:hover {
 footer {
   text-align: center;
   padding: 24px 0px;
+}
+
+/*media queries*/
+@media (min-width: 700px){
+  :root{
+    --bg-url: url(./assets/bg-desktop.png);
+  }
+
+  .light{
+    --bg-url: url(./assets/bg-desktop-light.png);
+  }
 }
