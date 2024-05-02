@@ -7,21 +7,28 @@
 }
 /*raiz do projeto*/
 :root {
-  --test-color: white;
+  --text-color: white;
   --bg-url: url(./assets/bg-mobile.jpg);
   --stroke-color: rgba(255, 255, 255, 0.5);
-  --surface-color: rgba(255, 255, 255, 0.1);
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(./assets/moon-stars.svg);
 }
+
 .light {
-  --test-color: black;
-  --bg-url: url(./assets/bg-mobile-light\\(1\).jpg);
+  --text-color: black;
+  --bg-url: url(./assets/bg-mobile-light.jpg);
   --stroke-color: rgba(0, 0, 0, 0.5);
   --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/sun.svg);
 }
 
 body {
   /*Buscando a imagem de fundo */
-  background-image: url(./assets/bg-mobile.jpg);
+  background-image: var(--bg-url);
 
   /*A imagem esta repetindo varias vezes, para não repetir:*/
   background-repeat: no-repeat;
@@ -36,7 +43,7 @@ body {
 body * {
   /*body* significa que é para todos os bodys sem exceção */
   font-family: "inter", sans-serif;
-  color: var(--test-color);
+  color: var(--text-color);
 }
 
 #container {
@@ -45,8 +52,9 @@ body * {
 
   /*margin top de 56px laterais auto e bottom 0px*/
   margin: 56px auto 0px;
-  padding: 24px;
+  padding: 0 24px;
 }
+/*profile*/
 #profile {
   text-align: center;
   /*preenchimento da caixa*/
@@ -69,6 +77,42 @@ text-align: center; */
   text-align: center;
   margin-top: 8px;
 }
+/*switchs*/
+#switch {
+  position: relative;
+  width: 64px;
+  margin: 4px auto;
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border-radius: 50%;
+  position:absolute;
+  top: 50%;
+  right: auto;
+  z-index: 1;
+  transform: translateY(-50%);
+}
+
+.light #switch button {
+  right: 0;
+  left: initial;
+}
+
+
+#switch span {
+  display: block; /*pq o span é uma propriedade inline, então colocamos o block*/
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  /*webkit para funcionar em outros navegadores*/
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
 /*links*/
 ul {
   padding: 24px 0;
@@ -99,7 +143,7 @@ ul li a {
   transition: background 0.5;
 }
 ul li a:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--surface-color-hover);
   border: 1.5px solid var(--text-color);
 }
 
@@ -120,7 +164,7 @@ ul li a:hover {
 }
 
 #social-links a:hover {
-  background: rgba(225, 225, 225, 0.2);
+  background:var(--highlight-color);
   border-radius: 50%;
 }
 
