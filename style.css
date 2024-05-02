@@ -49,7 +49,7 @@ body * {
 #container {
   /*Largura*/
   width: 360px;
-
+  max-width: 588px;
   /*margin top de 56px laterais auto e bottom 0px*/
   margin: 56px auto 0px;
   padding: 0 24px;
