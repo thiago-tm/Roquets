@@ -31,6 +31,7 @@ body {
   height: 100vh;
 }
 
+
 body * {
   /*body* significa que é para todos os bodys sem exceção */
   font-family: "inter", sans-serif;
